@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    了解      -->
+    <!--    url="从网上加载配置文件      "-->
+    <properties resource="db.properties"/>
+
+    <settings>
+        <!--    指定第三方日志的框架      -->
+        <!--    是否开启一级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+
+        <!--    指定 MyBatis 所用日志的具体实现，未指定时将自动查找。 -->
+        <!--<setting name="logImpl" value=""/>-->
+
+        <!--    是否开启延迟加载缓存    -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+
+        <!--    是否开启立即加载  -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+        <!--    是否开启驼峰命名映射  -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!--    设置类的前缀  -->
+        <package name="com.qf.hua.mybatis.entity"/>
+    </typeAliases>
+
+    <!--    EJB java提出来的企业开发标准     -->
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driverClass}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/TestSelectMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.hua.mybatis.mapper.UserMapper">
+    <!--hibernate   注解的方式-->
+    <!--mybatis里    resultMap来映射-->
+    <resultMap id="BaseResultMapper" type="User">
+        <!--对应数据的id-->
+        <id column="user_id" property="userId"/>
+        <!--普通字段-->
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <!--结果集-->
+    <!--#{user.username}是前端传过来的-->
+    <insert id="insert">
+        insert into user (username,password)
+        values (#{user.username},#{user.password});
+    </insert>
+
+    <select id="selectById" resultMap="BaseResultMapper">
+        select user_id, username, password, status
+        from user where status = 0;
+    </select>
+</mapper>
