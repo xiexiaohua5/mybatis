@@ -2,6 +2,7 @@ package com.qf.hua.mybatis;
 
 import com.qf.hua.mybatis.entity.Test;
 import com.qf.hua.mybatis.entity.User;
+import com.qf.hua.mybatis.mapper.TestInsertMapper;
 import com.qf.hua.mybatis.mapper.TestSelectMapper;
 import com.qf.hua.mybatis.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
@@ -37,12 +38,23 @@ public class TestMain {
 //        User user = mapper.selectById(1);
 //        System.out.println(user);
 
-        TestSelectMapper mapper1 = sqlSession.getMapper(TestSelectMapper.class);
+        /*TestSelectMapper mapper1 = sqlSession.getMapper(TestSelectMapper.class);
         Test test = mapper1.selectById(2);
         List<Test> tests = mapper1.selectList(0, 10);
         System.out.println(test);
         tests.forEach(test1 -> {
             System.out.println(test1.getId());
-        });
+        });*/
+
+        TestInsertMapper mapper = sqlSession.getMapper(TestInsertMapper.class);
+        Test test = new Test();
+        test.setName("test1");
+        int insert = mapper.insert(test);
+        if (insert > 0){
+            System.out.println("添加成功");
+            System.out.println(test.getId());
+        }else {
+            System.out.println("添加失败");
+        }
     }
 }
