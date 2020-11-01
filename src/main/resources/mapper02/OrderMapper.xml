@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.hua.mybatis02.mapper.OrderMapper">
+<resultMap id="BaseResultMap" type="com.qf.hua.mybatis02.entity.Order">
+    <id property="orderId" column="order_id"></id>
+    <result property="orderNo" column=""></result>
+    <result property="status" column=""></result>
+    <result property="createDate" column=""></result>
+    <result property="userId" column=""></result>
+
+</resultMap>
+<select id="selectOrderByNo" resultMap="BaseResultMap">
+
+</select>
+
+</mapper>

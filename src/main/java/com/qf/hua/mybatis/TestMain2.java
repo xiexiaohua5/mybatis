@@ -8,18 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class TestMain2 {
     public static void main(String[] args) {
-        SqlSessionFactory sqlSessionFactory = new
-                SqlSessionFactoryBuilder().build(
-                TestMain.class.getClassLoader()
-                        .getResourceAsStream(
-                                "mybatis-config.xml")
-        );
 
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(TestMain.class.getClassLoader().getResourceAsStream("mybatis-config.xml"));
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
         ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);

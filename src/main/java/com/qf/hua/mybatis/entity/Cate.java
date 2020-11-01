@@ -23,6 +23,7 @@ public class Cate {
      *
      */
     private Date createDate;
+    //private Product product;
 
     private List<Product> productList;
 

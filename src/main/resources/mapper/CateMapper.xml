@@ -9,7 +9,7 @@
         <result property="createDate" column="create_date"/>
         <result property="status" column="status"/>
     </resultMap>
-    <select id="selectList" resultType="com.qf.hua.mybatis.entity.Cate">
+    <select id="selectList" resultMap="BaseResultMap">
         select cate_id, name, create_date, status
         from cate
         where status = 0;
